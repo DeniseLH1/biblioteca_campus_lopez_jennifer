@@ -13,14 +13,8 @@ SELECT * FROM Libros WHERE genero = 'Novela';
 SELECT * FROM Libros WHERE genero = 'Ciencia Ficción';
 SELECT * FROM Libros WHERE genero = 'Fantasía';
 
--- Obtener
+-- Contar el número de libros en la biblioteca
 SELECT COUNT(*) AS total_libros FROM Libros;
-
-SELECT L.titulo, A.nombre 
-FROM Libros L
-JOIN Libro_Autor LA ON L.id = LA.libro_id
-JOIN Autores A ON LA.autor_id = A.id;
-
 
 -- LISTAR LIBROS DISPONIBLES
 SELECT * FROM Libros WHERE disponible = TRUE;
@@ -50,3 +44,9 @@ JOIN Autores A ON LA.autor_id = A.id;
 
 -- Obtener las transacciones de un miembro específico
 SELECT * FROM Transacciones WHERE miembro_id = 1
+
+-- Listar todos los libros y sus autores
+SELECT L.titulo, A.nombre 
+FROM Libros L
+JOIN Libro_Autor LA ON L.id = LA.libro_id
+JOIN Autores A ON LA.autor_id = A.id;
